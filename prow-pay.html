@@ -1,0 +1,429 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>ProwPay™ – AI-Powered Payments & Cashflow</title>
+  <meta name="description" content="ProwPay™ helps small businesses get paid faster. Accept cards & ACH, send smart invoices, automate reconciliation, and forecast cashflow with AI." />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Chivo:wght@400;600;700;800;900&family=DM+Sans:wght@400;500;700;800&display=swap" rel="stylesheet">
+
+  <style>
+    :root{
+      --ink:#0f1f26;           /* Primary text */
+      --brand:#3B6A7B;         /* Teal brand */
+      --brand-700:#2a4c57;
+      --brand-50:#e0f1f5;      /* Light tint */
+      --sand:#F0F0E1;          /* Background neutral */
+      --white:#fff;
+      --ok:#28a745;
+      --no:#dc3545;
+      --card-shadow:0 10px 20px rgba(0,0,0,.1);
+    }
+    *{box-sizing:border-box}
+    html,body{margin:0;padding:0}
+    body{font-family:"DM Sans",system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial,sans-serif;color:var(--ink);background:var(--sand);}
+    img{max-width:100%;display:block}
+    a{color:inherit;text-decoration:none}
+
+    /* NAV */
+    .navbar{position:sticky;top:0;z-index:40;background:var(--white);border-bottom:1px solid #eaeaea}
+    .nav-wrap{max-width:1160px;margin:auto;display:flex;align-items:center;justify-content:space-between;padding:14px 20px}
+    .brand{display:flex;align-items:center;gap:12px}
+    .brand svg{height:28px}
+    .nav-links{display:flex;gap:22px;align-items:center}
+    .nav-links a{font-weight:600;font-size:.95rem;color:#375661}
+    .cta{padding:10px 16px;border-radius:10px;background:var(--brand);color:#fff;font-weight:700;box-shadow:0 4px 10px rgba(59,106,123,.25)}
+
+    /* HERO */
+    .hero{padding:72px 20px;background:linear-gradient(180deg, var(--white), #f7fafb)}
+    .container{max-width:1160px;margin:auto}
+    .hero-grid{display:grid;grid-template-columns:1.1fr .9fr;gap:40px;align-items:center}
+    .eyebrow{display:inline-flex;align-items:center;gap:8px;background:var(--brand-50);color:var(--brand-700);font-weight:700;border-radius:999px;padding:8px 12px;margin-bottom:14px;font-size:.85rem}
+    .hero h1{font-family:Chivo, sans-serif;font-weight:900;letter-spacing:-.02em;margin:0 0 14px;font-size:3rem;color:#0c2b36}
+    .hero p{font-size:1.2rem;line-height:1.55;color:#27434e;margin:0 0 22px}
+    .hero-cta{display:flex;gap:14px;flex-wrap:wrap}
+    .btn{display:inline-flex;align-items:center;gap:10px;padding:14px 20px;border-radius:12px;font-weight:800}
+    .btn.primary{background:var(--brand);color:#fff}
+    .btn.secondary{background:#e7f2f5;color:var(--brand-700)}
+    .badges{display:flex;gap:14px;flex-wrap:wrap;margin-top:10px;font-size:.9rem;color:#54737f}
+
+    /* DECOR CARD */
+    .mock{background:var(--white);border:1px solid #eef3f5;border-radius:16px;box-shadow:var(--card-shadow);padding:18px}
+    .mock h4{margin:0 0 10px;font-size:1rem;color:#21414c}
+    .stat{display:flex;justify-content:space-between;align-items:center;padding:10px 0;border-bottom:1px dashed #e8edf0}
+    .stat:last-child{border-bottom:0}
+
+    /* HOW IT WORKS */
+    .section{padding:80px 20px}
+    .section h2{font-family:Chivo,sans-serif;font-size:2.4rem;margin:0 0 14px;color:var(--brand-700)}
+    .sub{margin:0 0 38px;color:#375661}
+    .steps{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
+    .step{background:var(--white);border-radius:16px;box-shadow:var(--card-shadow);padding:24px;border:1px solid #eaf0f3}
+    .step .num{width:36px;height:36px;border-radius:10px;display:grid;place-items:center;background:var(--brand-50);font-weight:800;color:var(--brand-700);margin-bottom:10px}
+    .step h3{margin:6px 0 10px}
+
+    /* FEATURES */
+    .features{display:grid;grid-template-columns:repeat(4,1fr);gap:20px}
+    .feature{background:var(--white);border-radius:16px;box-shadow:var(--card-shadow);padding:22px;border:1px solid #eaf0f3}
+    .feature h4{margin:8px 0 8px}
+    .pill{display:inline-flex;gap:6px;align-items:center;background:var(--brand-50);color:var(--brand-700);padding:6px 10px;border-radius:999px;font-weight:700;font-size:.8rem}
+
+    /* PRICING */
+    .pricing{padding:80px 20px;background:var(--sand);text-align:center}
+    .pricing h2{font-family:Chivo,sans-serif;font-size:2.5rem;color:var(--brand-700);margin:0 0 8px}
+    .pricing p.sub{margin-bottom:40px}
+    .pricing-cards{display:flex;flex-wrap:wrap;gap:26px;justify-content:center}
+    .card{width:300px;background:var(--brand);color:#fff;border-radius:16px;padding:32px;box-shadow:var(--card-shadow);position:relative;border:3px solid transparent}
+    .card h3{margin:0 0 10px}
+    .price{font-size:2rem;font-weight:900;margin:8px 0}
+    .card ul{list-style:none;padding:0;margin:18px 0;text-align:left}
+    .card li{margin:10px 0;font-weight:500}
+    .card .btn{background:#fff;color:var(--brand)}
+    .card.popular{border-color:#fff}
+    .card.popular:before{content:"Most Popular";position:absolute;top:-14px;left:50%;transform:translateX(-50%);background:#fff;color:var(--brand);font-weight:900;border-radius:12px;padding:4px 10px;font-size:.85rem}
+
+    /* COMPARISON */
+    .comparison{padding:80px 20px;background:var(--white)}
+    .comparison h2{font-family:Chivo,sans-serif;color:var(--brand-700);font-size:2.2rem;margin:0 0 24px;text-align:center}
+    .table-wrap{overflow-x:auto;border-radius:12px;box-shadow:var(--card-shadow)}
+    table{width:100%;min-width:720px;border-collapse:collapse}
+    thead th{background:var(--brand);color:#fff;padding:16px;font-weight:800;text-transform:uppercase}
+    tbody td{background:#fff;padding:16px;text-align:center;border-bottom:1px solid #eef2f4}
+    tbody tr:nth-child(even) td{background:var(--brand-50)}
+    .yes{color:var(--ok);font-weight:800}
+    .no{color:var(--no);font-weight:800}
+
+    /* TESTIMONIALS / PRESS */
+    .press{padding:80px 20px}
+    .press h2{font-family:Chivo,sans-serif;color:var(--brand-700);font-size:2.2rem;margin:0 0 26px;text-align:center}
+    .press-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+    .press-card{background:var(--white);border:1px solid #eaf0f3;border-radius:16px;box-shadow:var(--card-shadow);padding:18px;display:flex;flex-direction:column;gap:10px}
+    .press-card .slice{font-weight:800;color:#24434e}
+    .press-card a{font-weight:800;color:var(--brand-700)}
+
+    /* FAQ */
+    .faq{padding:80px 20px;background:linear-gradient(180deg,#ffffff, #f6fafb)}
+    .faq h2{font-family:Chivo,sans-serif;color:var(--brand-700);font-size:2.2rem;margin:0 0 20px;text-align:center}
+    .qa{max-width:900px;margin:0 auto;display:grid;gap:12px}
+    .qa details{background:var(--white);border:1px solid #eaf0f3;border-radius:12px;padding:14px}
+    .qa summary{cursor:pointer;font-weight:800}
+    .qa p{margin:10px 0 0;color:#2b4a55}
+
+    /* FOOTER */
+    .footer{background:#0b1c22;color:#d9edf3;padding:40px 20px}
+    .footer-grid{max-width:1160px;margin:auto;display:grid;grid-template-columns:2fr 1fr 1fr;gap:24px;align-items:center}
+    .footer a{color:#d9edf3}
+
+    /* RESPONSIVE */
+    @media (max-width:980px){
+      .hero-grid{grid-template-columns:1fr}
+      .features{grid-template-columns:repeat(2,1fr)}
+      .steps{grid-template-columns:1fr}
+      .press-grid{grid-template-columns:1fr 1fr}
+      .footer-grid{grid-template-columns:1fr}
+    }
+    @media (max-width:640px){
+      .features{grid-template-columns:1fr}
+      .hero h1{font-size:2.2rem}
+    }
+  </style>
+</head>
+<body>
+  <!-- NAVBAR -->
+  <header class="navbar">
+    <div class="nav-wrap">
+      <a class="brand" href="/">
+        <!-- Simple logotype placeholder -->
+        <svg viewBox="0 0 120 28" xmlns="http://www.w3.org/2000/svg"><rect rx="6" width="120" height="28" fill="#3B6A7B"/><text x="12" y="19" font-family="Chivo, sans-serif" font-size="14" font-weight="800" fill="#fff">ProwPay</text></svg>
+      </a>
+      <nav class="nav-links">
+        <a href="#how">How it works</a>
+        <a href="#features">Features</a>
+        <a href="#pricing">Pricing</a>
+        <a href="https://app.prowpay.ai/" class="cta">Sign in</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="container hero-grid">
+      <div>
+        <span class="eyebrow">AI-Powered Payments for SMBs</span>
+        <h1>Get paid faster. See cashflow sooner. Automate the rest.</h1>
+        <p>ProwPay™ unifies invoicing, online checkout, and payouts so you can accept cards & ACH, auto‑reconcile books, and forecast cash needs with AI—without switching tools.</p>
+        <div class="hero-cta">
+          <a href="https://app.prowpay.ai/" class="btn primary">Get started</a>
+          <a href="#how" class="btn secondary">See how it works</a>
+        </div>
+        <div class="badges">
+          <span>• No setup fees</span>
+          <span>• Transparent pricing</span>
+          <span>• Cancel anytime</span>
+        </div>
+      </div>
+      <div class="mock" aria-label="Product preview">
+        <h4>Today’s Snapshot</h4>
+        <div class="stat"><strong>Collected</strong><span>$8,420</span></div>
+        <div class="stat"><strong>Outstanding</strong><span>$12,310</span></div>
+        <div class="stat"><strong>Avg. time to pay</strong><span>1.8 days</span></div>
+        <div class="stat"><strong>AI forecast (14d)</strong><span>+$21,900</span></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- HOW IT WORKS -->
+  <section id="how" class="section">
+    <div class="container">
+      <h2>How ProwPay™ Works</h2>
+      <p class="sub">From first invoice to final payout—everything flows through one smart hub.</p>
+      <div class="steps">
+        <div class="step">
+          <div class="num">1</div>
+          <h3>Connect & Configure</h3>
+          <p>Link your bank, accounting, and storefront. Choose payment methods (cards, ACH) and payout preferences.</p>
+        </div>
+        <div class="step">
+          <div class="num">2</div>
+          <h3>Collect Effortlessly</h3>
+          <p>Use smart invoices, hosted checkout links, or embedded buttons. Auto‑reminders nudge late payers for you.</p>
+        </div>
+        <div class="step">
+          <div class="num">3</div>
+          <h3>Reconcile & Predict</h3>
+          <p>Payments auto‑sync to your books. AI highlights trends, risks, and predicts cash‑in so you can plan with confidence.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FEATURE HIGHLIGHTS -->
+  <section id="features" class="section" style="padding-top:0">
+    <div class="container">
+      <h2>Built to move money—and decisions—faster</h2>
+      <p class="sub">Everything you need to accept payments, accelerate AR, and stay ahead of cashflow.</p>
+      <div class="features">
+        <div class="feature">
+          <span class="pill">Checkout</span>
+          <h4>Card & ACH payments</h4>
+          <p>Share a link or embed checkout on your site. Surcharging & convenience fees are supported where compliant.</p>
+        </div>
+        <div class="feature">
+          <span class="pill">Invoicing</span>
+          <h4>Smart invoices & reminders</h4>
+          <p>Send branded invoices with due‑date nudges, partial payments, deposits, and recurring schedules.</p>
+        </div>
+        <div class="feature">
+          <span class="pill">Cashflow</span>
+          <h4>AI forecasting</h4>
+          <p>Predict inflows by customer and see expected dates so you can time purchases and payroll.</p>
+        </div>
+        <div class="feature">
+          <span class="pill">Ops</span>
+          <h4>Auto‑reconciliation</h4>
+          <p>Sync payouts and fees to your ledger and match to invoices—no spreadsheets required.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PRICING -->
+  <section id="pricing" class="pricing">
+    <div class="container">
+      <h2>Simple, Transparent Pricing</h2>
+      <p class="sub">Start free. Upgrade when you’re ready.</p>
+      <div class="pricing-cards">
+        <div class="card" aria-label="Free plan">
+          <h3>Free to Start</h3>
+          <div class="price">$0<span style="font-size:1rem;font-weight:600"> / mo</span></div>
+          <ul>
+            <li>✔ Smart invoices & reminders</li>
+            <li>✔ Card & ACH checkout</li>
+            <li>✔ Basic analytics</li>
+            <li>✘ Advanced automations</li>
+            <li>✘ Priority support</li>
+          </ul>
+          <a class="btn" href="https://app.prowpay.ai/">Get Started</a>
+        </div>
+        <div class="card popular" aria-label="Pro plan">
+          <h3>Pro</h3>
+          <div class="price">$79<span style="font-size:1rem;font-weight:600"> / mo</span></div>
+          <ul>
+            <li>✔ Everything in Free</li>
+            <li>✔ AI cashflow forecasting</li>
+            <li>✔ Auto‑reconciliation to ledger</li>
+            <li>✔ Recurring billing & deposits</li>
+            <li>✘ Custom roles & SSO</li>
+          </ul>
+          <a class="btn" href="https://app.prowpay.ai/">Choose Pro</a>
+        </div>
+        <div class="card" aria-label="Enterprise plan">
+          <h3>Enterprise</h3>
+          <div class="price">Custom</div>
+          <ul>
+            <li>✔ Everything in Pro</li>
+            <li>✔ Advanced permissions & SSO</li>
+            <li>✔ Custom integrations</li>
+            <li>✔ Dedicated account manager</li>
+            <li>✔ Premium SLA</li>
+          </ul>
+          <a class="btn" href="#contact">Contact Us</a>
+        </div>
+      </div>
+      <p style="margin-top:16px;color:#395b66;font-size:.95rem">Processing fees apply. Instant payouts are optional and may incur an additional fee.</p>
+    </div>
+  </section>
+
+  <!-- FEATURE COMPARISON TABLE -->
+  <section class="comparison" aria-label="Plan comparison">
+    <div class="container">
+      <h2>Compare Key Features</h2>
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr>
+              <th>Feature</th>
+              <th>Free</th>
+              <th>Pro ($79/mo)</th>
+              <th>Enterprise</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td style="text-align:left">Cards</td>
+              <td class="yes">✔</td>
+              <td class="yes">✔</td>
+              <td class="yes">✔</td>
+            </tr>
+            <tr>
+              <td style="text-align:left">ACH</td>
+              <td class="yes">✔</td>
+              <td class="yes">✔</td>
+              <td class="yes">✔</td>
+            </tr>
+            <tr>
+              <td style="text-align:left">Recurring Billing</td>
+              <td class="no">✘</td>
+              <td class="yes">✔</td>
+              <td class="yes">✔</td>
+            </tr>
+            <tr>
+              <td style="text-align:left">Instant Payouts</td>
+              <td>—</td>
+              <td>Optional</td>
+              <td>Optional</td>
+            </tr>
+            <tr>
+              <td style="text-align:left">AI Cashflow Forecasting</td>
+              <td class="no">✘</td>
+              <td class="yes">✔</td>
+              <td class="yes">✔</td>
+            </tr>
+            <tr>
+              <td style="text-align:left">Auto‑Reconciliation</td>
+              <td class="no">✘</td>
+              <td class="yes">✔</td>
+              <td class="yes">✔</td>
+            </tr>
+            <tr>
+              <td style="text-align:left">Custom Roles & SSO</td>
+              <td class="no">✘</td>
+              <td class="no">✘</td>
+              <td class="yes">✔</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+
+  <!-- PRESS / LINKS (optional placeholders to mirror sister site) -->
+  <section class="press" aria-label="What they're saying">
+    <div class="container">
+      <h2>What they’re saying</h2>
+      <div class="press-grid">
+        <div class="press-card">
+          <img src="https://cdn.prod.website-files.com/67c4ce3ef92e4e5d340ab2db/6807c0eaacbd8287dbc93e34_3_Entrepreneur.png" alt="Entrepreneur logo" />
+          <div class="slice">How AI Helps Small Teams</div>
+          <a href="https://www.entrepreneur.com/growing-a-business/how-ai-helps-small-teams-compete-like-big-ones/488948" target="_blank" rel="noopener">Read Now</a>
+        </div>
+        <div class="press-card">
+          <img src="https://cdn.prod.website-files.com/67c4ce3ef92e4e5d340ab2db/6807c0d01e7d5dfef052e283_2_8newsnow(1).png" alt="8 News Now" />
+          <div class="slice">GorillaTech Secures $2M to empower SMBs</div>
+          <a href="https://www.8newsnow.com/business/press-releases/ein-presswire/784744053/gorillatech-secures-2m-to-empower-smbs-with-ai-powered-fintech-in-the-trillion-dollar-data-insights-market/" target="_blank" rel="noopener">Read Now</a>
+        </div>
+        <div class="press-card">
+          <img src="https://cdn.prod.website-files.com/67c4ce3ef92e4e5d340ab2db/6807c06a8b1e455faeeb0ee5_PROW_press_1_BusinessInsider.png" alt="Business Insider" />
+          <div class="slice">AI‑Driven Fintech for Growth</div>
+          <a href="https://markets.businessinsider.com/news/stocks/gorillatech-unveils-ai-driven-fintech-solutions-for-small-business-growth-1034383880" target="_blank" rel="noopener">Read Now</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section class="faq" id="faq">
+    <div class="container">
+      <h2>FAQs</h2>
+      <div class="qa">
+        <details>
+          <summary>What payment methods can I accept?</summary>
+          <p>Cards and ACH are supported out of the box. You can enable both on invoices and checkout links.</p>
+        </details>
+        <details>
+          <summary>How fast are payouts?</summary>
+          <p>Standard payouts are typically 2 business days. Optional instant payouts are available for an additional fee.</p>
+        </details>
+        <details>
+          <summary>Does ProwPay sync with my accounting?</summary>
+          <p>Yes—Pro and Enterprise plans include auto‑reconciliation so collected payments and fees post to your ledger automatically.</p>
+        </details>
+        <details>
+          <summary>Can I pass on card fees?</summary>
+          <p>Convenience fees and surcharging are supported where compliant. Always review local regulations before enabling.</p>
+        </details>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="footer" id="contact">
+    <div class="footer-grid">
+      <div>
+        <div class="brand" style="margin-bottom:10px">
+          <svg viewBox="0 0 120 28" xmlns="http://www.w3.org/2000/svg"><rect rx="6" width="120" height="28" fill="#3B6A7B"/><text x="12" y="19" font-family="Chivo, sans-serif" font-size="14" font-weight="800" fill="#fff">ProwPay</text></svg>
+        </div>
+        <p>© 2025 Prow™, Los Angeles, USA</p>
+      </div>
+      <div>
+        <h4>Legal</h4>
+        <p><a href="/legal-disclaimer.html">Legal Disclaimer</a></p>
+        <p><a href="/terms-and-conditions.html">Terms & Conditions</a></p>
+        <p><a href="/privacy-policy.html">Privacy Policy</a></p>
+        <p><a href="/cookie-policy.html">Cookies Policy</a></p>
+      </div>
+      <div>
+        <h4>Get Started</h4>
+        <p><a href="https://app.prowpay.ai/" class="cta" style="display:inline-block">Create your account</a></p>
+        <p><a href="mailto:hello@prowco.ai">hello@prowco.ai</a></p>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // Trim long press titles (mirrors sister-site behavior)
+    document.addEventListener('DOMContentLoaded', function () {
+      var elements = document.getElementsByClassName('slice');
+      var limit = 28;
+      for (var i = 0; i < elements.length; i++) {
+        var el = elements[i];
+        if (el.textContent.length > limit) {
+          el.textContent = el.textContent.slice(0, limit) + '…';
+        }
+      }
+    });
+  </script>
+</body>
+</html>
